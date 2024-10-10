@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ControlNobreak.Models.Nobreak>
+
+<h2>Nobreaks Cadastrados</h2>
+
+<h4>Total de nobreaks na lista @ViewBag.contagemRegistro</h4>
+<h4>Soma de estoque @ViewBag.somaNobreaks</h4>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Potencia</th>
+            <th>Data de Manutenção</th>
+            <th>Serie</th>
+            <th>Quantidade</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Marca</td>
+                <td>@item.Modelo</td>
+                <td>@item.Potencia</td>
+                <td>@item.DataManutencao?.ToShortDateString()</td>
+                <td>@item.Serie</td>
+                <td>@item.Quantidade</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Nobreaks/Create" class="btn btn-primary">Cadastrar Nobreak</a>

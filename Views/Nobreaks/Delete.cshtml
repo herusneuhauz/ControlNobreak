@@ -1,0 +1,18 @@
+﻿@model ControlNobreak.Models.Nobreak
+
+<h2>Confirmar Exclusão</h2>
+
+<div>
+    <h4>Tem certeza que deseja excluir este Nobreak?</h4>
+    <div>
+        <h5>Marca: @Model.Marca</h5>
+        <h5>Modelo: @Model.Modelo</h5>
+        <h5>Potência: @Model.Potencia</h5>
+    </div>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
